@@ -12,6 +12,7 @@ const home = require("./src/routes/home");
 app.set("views","./src/views");
 app.set('view engine',"ejs")
 app.use(express.static(`${__dirname}/src/public`)); // login.egs와 login.js를 연결
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 

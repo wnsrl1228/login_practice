@@ -16,14 +16,6 @@ class User {
         }
         return {success:false,msg:"존재안함"};
 
-        
-        // if(users.id.includes(id)){
-        //     const idx = users.id.indexOf(id);
-        //     if(users.pwd[idx]===pwd){
-        //         response.success = true;
-        //         return res.json(response)
-        //     }
-        // }
     }
 
 }
