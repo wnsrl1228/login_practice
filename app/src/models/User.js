@@ -5,17 +5,21 @@ class User {
         this.body = body;
     }
     login() {
-        const body = this.body;
-        const {id,pwd} = UserStorage.getUserInfo(body.id);
+        const client = this.body;
+        const {id,pwd} = UserStorage.getUserInfo(client.id);
         
         if (id){
-            if (id===body.id && pwd===body.pwd){
+            if (id===client.id && pwd===client.pwd){
                 return {success:true};
             }
             return {success:false,msg:"비번틀림"};
         }
         return {success:false,msg:"존재안함"};
-
+    }
+    register() {
+        const client = this.body;
+        const response = UserStorage.save(client);
+        return response
     }
 
 }
