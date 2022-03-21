@@ -1,8 +1,10 @@
 "use strict";
 
 const app = require("../app");
-const POST = process.env.PORT || 3000;
+const logger = require("../src/config/logger");
 
-app.listen(POST, () => {
-    console.log("서버 가동");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+    logger.info(`${PORT} 포트에서 서버가 가동되었습니다.`);
 });
