@@ -6,15 +6,20 @@ class User {
     }
     async login() {
         const client = this.body;
-        const {id,pwd} = await UserStorage.getUserInfo(client.id);
+        try{
+            const {id,pwd} = await UserStorage.getUserInfo(client.id);
         
-        if (id){
-            if (id===client.id && pwd===client.pwd){
-                return {success:true};
+            if (id){
+                if (id===client.id && pwd===client.pwd){
+                    return {success:true};
+                }
+                return {success:false,msg:"비번틀림"};
             }
-            return {success:false,msg:"비번틀림"};
+            return {success:false,msg:"존재안함"};
+        }catch(err){
+            return {success : false, msg: err};
         }
-        return {success:false,msg:"존재안함"};
+        
     }
     async register() {
         const client = this.body;
